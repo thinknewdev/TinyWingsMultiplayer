@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>
+        </title>
+        <link rel="stylesheet" href="themes/tinywings.min.css" />
+        <link rel="stylesheet" href="my.css" />
+        <style>
+            /* App custom styles */
+        </style>
+    
+      
+		</head>
+		<body>
+		<div data-role="page" id="page">
+            <div data-theme="" data-role="header">
+                <h3>
+                    Tiny Wings
+                </h3>
+            </div>
+            <div data-role="content">
+
+			<button onclick="login()">Login</button>
+			<button onclick="me()">Me</button>
+
+            <ul data-role="listview" data-divider-theme="a" data-inset="true" id="fbfriendList">
+                <li data-role="list-divider" role="heading">
+                    Facebook Friends
+                </li>
+             </ul>
+			</div>
+			<script type="text/javascript">
+			document.addEventListener('deviceready', function() {
+				try {
+					//alert('Device is ready!	Make sure you set your app_id below this alert.');
+					FB.init({
+						appId : "138294852910700",
+						nativeInterface : CDV.FB,
+						useCachedDialogs : false
+					});
+					//document.getElementById('data').innerHTML = "FB init executed";
+				} catch (e) {
+					//alert(e);
+				}
+			}, false);
+	
+			function me() {
+				FB.api('/me/friends', {
+					fields : 'id, name, picture'
+				}, function(response) {
+					if (response.error) {
+						alert(JSON.stringify(response.error));
+					} else {
+						fdata = response.data;
+						console.log("fdata: " + fdata);
+						response.data.forEach(function(item) {
+							$('#fbfriendList').append('<li data-theme="c"><a href="frienddetails.html" data-transition="slide"><img style="margin:0px;border:1px solid #333;float:left;" src="'+item.picture+'"/>' + item.name+'</a></li>');
+							
+						});
+						$('#fbfriendList').listview('refresh');
+					}
+					
+					var friends = response.data;
+					console.log(friends.length);
+					for ( var k = 0; k < friends.length && k < 200; k++) {
+						var friend = friends[k];
+						var index = 1;
+	
+						friendIDs[k] = friend.id;
+						//friendsInfo[k] = friend;
+					}
+					console.log("friendId's: " + friendIDs);
+				});
+			}
+	
+			function login() {
+				FB.login(function(response) {
+					if (response.authResponse) {
+						//alert('logged in');
+					} else {
+						//alert('not logged in');
+					}
+				}, {
+					scope : "email"
+				});
+			}
+		</script>
+		
+	</div>
+</body>
+</html>

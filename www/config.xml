@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns		= "http://www.w3.org/ns/widgets"
+	xmlns:gap	= "http://phonegap.com/ns/1.0"
+	id		= "com.thinknew.tinywings"
+	version 	= "1.0.0">
+	
+	
+
+	<name>Tiny Wings</name>
+
+	<description>
+	A Multiplayer HTML5 Racing Game
+	</description>
+
+	<author href="http://alunny.github.com"
+		email="andrew.lunny@nitobi.com">
+		Adam Coburn
+	</author>
+
+	<icon src="icon.png" gap:role="default" />
+
+	<feature name="http://api.phonegap.com/1.0/geolocation"/>
+	<feature name="http://api.phonegap.com/1.0/network"/>
+	<feature name="http://api.phonegap.com/1.0/file"/>
+
+	<preference name="orientation" value="portrait" />
+	<preference name="android-minSdkVersion" value="8" />
+</widget>

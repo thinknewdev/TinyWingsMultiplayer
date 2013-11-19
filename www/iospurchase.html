@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>
+        </title>
+         <link rel="stylesheet" href="css/jquerymobile.css" />
+        <link rel="stylesheet" href="themes/tinywings.min.css" />
+        <link rel="stylesheet" href="my.css" />
+        <style>
+            /* App custom styles */
+            </style>
+        
+    </head>
+    <body onload="onBodyLoad()">
+        <div data-role="page" id="page">
+            <div data-theme="" data-role="header">
+                <h3>
+                    Tiny Wings
+                </h3>
+            </div>
+            <div data-role="content">
+                <script src="js/jquery.js">
+                    </script>
+                <script src="js/jquerymobile.js">
+                    </script>
+                <script type="text/javascript" charset="utf-8" src="cordova-1.7.0.js"></script>
+	<script type="text/javascript" charset="utf-8" src="InAppPurchaseManager.js"></script>
+    <script type="text/javascript" charset="utf-8">
+	
+	function onBodyLoad()
+	{
+		document.addEventListener("deviceready",onDeviceReady,false);
+	}
+	function onDeviceReady()
+	{
+        window.plugins.inAppPurchaseManager.onPurchased = function(transactionIdentifier, productId, transactionReceipt) {
+            $("#log").append('purchased: ' + productId);
+            /* Give coins, enable subscriptions etc */
+        }
+        
+        window.plugins.inAppPurchaseManager.onRestored = function(transactionIdentifier, productId, transactionReceipt) {
+            $("#log").append('restored: ' + productId);
+            /* See the developer guide for details of what to do with this */
+        }
+        
+        window.plugins.inAppPurchaseManager.onFailed = function(errno, errtext) {
+            $("#log").append('failed: ' + errtext);
+        }
+        
+       
+	}
+        
+        function makePurchase  (id) 
+        {
+            window.plugins.inAppPurchaseManager.requestProductData("com.example.test", function(productId, title, description,price) {
+                                                                   $("#log").append("productId: " + productId + " title: " + title + " description: " + description + " price: " + price);
+                                                                   window.plugins.inAppPurchaseManager.makePurchase(productId, 1);
+                                                                   }, function(id) {
+                                                                   $("#log").append("Invalid product id: " + id);
+                                                                   }
+                                                                   );
+        }
+        
+   
+    
+        
+    </script>
+
+
+                <input onclick="makePurchase();" type="button" value="Invite a Friend to Play (3 left)" />
+
+
+                <div id="log"></div>
+                </div>
+            </div>
+  </body>
+</html>
+

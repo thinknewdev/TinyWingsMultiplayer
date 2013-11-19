@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>
+        </title>
+        <link rel="stylesheet" href="css/jquerymobile.css" />
+        <link rel="stylesheet" href="themes/tinywings.css" />
+        <link rel="stylesheet" href="my.css" />
+        <script src="js/jquery.js"></script>
+        <script src="js/jquerymobile.js"></script>
+        <script src="js/now.js"></script>
+    	<script type="text/javascript" src="js/nowconnect.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/cordova-1.7.0.js"></script>
+    </head>
+    <body>
+		<div data-role="page" id="page" data-add-back-btn="true">
+          <style>
+            /* App custom styles */
+        </style>
+ 
+		<script type="text/javascript" charset="utf-8" src="js/database.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/EmailComposer.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/cdv-plugin-fb-connect.js"></script>
+		<script type="text/javascript" charset="utf-8" src="js/facebook_js_sdk.js"></script>
+            <div data-theme="" data-role="header">
+                <h3>
+                    Tiny Wings
+                </h3>
+            </div>
+            <div data-role="content">
+		<button onclick="login()">Login</button>
+		<button onclick="me()">Show Friends</button>
+
+        
+        <div id="data">loading ...</div>
+        
+     
+   <!--<script src="http://localhost:8080/target/target-script-min.js#anonymous"></script>-->
+        <div id="fb-root"></div>
+          
+		<script>
+            
+            if ((typeof cordova == 'undefined') && (typeof Cordova == 'undefined')) alert('Cordova variable does not exist. Check that you have included cordova.js correctly');
+            if (typeof CDV == 'undefined') alert('CDV variable does not exist. Check that you have included cdv-plugin-fb-connect.js correctly');
+            if (typeof FB == 'undefined') alert('FB variable does not exist. Check that you have included the Facebook JS SDK file.');
+            
+            FB.Event.subscribe('auth.login', function(response) {
+                               alert('auth.login event');
+                               });
+            
+            FB.Event.subscribe('auth.logout', function(response) {
+                               alert('auth.logout event');
+                               });
+            
+            FB.Event.subscribe('auth.sessionChange', function(response) {
+                               alert('auth.sessionChange event');
+                               });
+            
+            FB.Event.subscribe('auth.statusChange', function(response) {
+                               alert('auth.statusChange event');
+                               });
+            
+            /*function getSession() {
+                alert("session: " + JSON.stringify(FB.getSession()));
+            }
+            */
+            function getLoginStatus() {
+                FB.getLoginStatus(function(response) {
+                                  if (response.status == 'connected') {
+                                  alert('logged in');
+                                  } else {
+                                  alert('not logged in');
+                                  }
+                                  });
+            }
+            var friendIDs = [];
+			var fdata;
+            function me() {
+                FB.api('/me/friends', { fields: 'id, name, picture, email' },  function(response) {
+                       if (response.error) {
+                       alert(JSON.stringify(response.error));
+                       } else {
+                       var data = document.getElementById('data');
+					   fdata=response.data;
+					   console.log("fdata: "+fdata);
+                       response.data.forEach(function(item) {
+						   					alert(JSON.stringify(item, replacer));
+                                             var d = document.createElement('div');
+                                             d.innerHTML = '<a href="javascript:;" onClick="sendFBEmail(\''+item.email+'\')"><img src="'+item.picture+'"/>'+item.name+'</a>';
+                                             data.appendChild(d);
+                                             });
+                       }
+					var friends = response.data;
+					console.log(friends.length); 
+					for (var k = 0; k < friends.length && k < 200; k++) {
+				        var friend = friends[k];
+				        var index = 1;
+
+				        friendIDs[k] = friend.id;
+				        //friendsInfo[k] = friend;
+					}
+					console.log("friendId's: "+friendIDs);
+                       });
+            }
+            
+            function logout() {
+                FB.logout(function(response) {
+                          alert('logged out');
+                          });
+            }
+            
+            function login() {
+                //alert("loggedin")
+                FB.login(
+                         function(response) {
+                         if (response.session) {
+                         alert('logged in');
+                         } else {
+                         alert('not logged in');
+                         }
+                         },
+                         { scope: "email" }
+                         );
+            }
+			
+			
+			function facebookWallPost() {
+			    console.log('Debug 1');
+				var params = {
+				    method: 'feed',
+				    name: 'PhoneGap Facebook Wall Post Test',
+				    link: 'http://www.think-new.com',
+				    picture: 'http://fbrell.com/f8.jpg',
+				    caption: 'Reference Documentation',
+				    description: 'This is just a simple test of IOS facebook wall publishing through HTML5'
+				  };
+				console.log(params);
+			    FB.ui(params, function(obj) { console.log(obj);});
+			}
+            
+			function publishStoryFriend(id) {
+				randNum = Math.floor ( Math.random() * friendIDs.length ); 
+
+				var friendID = id;
+				if (friendID == undefined){
+					alert('please click the me button to get a list of friends first');
+				}else{
+			    	console.log("friend id: " + friendID );
+			        console.log('Opening a dialog for friendID: ', friendID);
+			        var params = {
+			        	method: 'feed',
+			            to: friendID.toString(),
+			            name: 'Tiny Wings',
+			            link: 'http://www.thinknewgames.com/thinknew/html5/TinyWings/guest.html?roomid=C',
+			            picture: 'http://fbrell.com/f8.jpg',
+			            caption: 'Multiplayer Racing',
+			            description: ''
+			     	};
+					FB.ui(params, function(obj) { console.log(obj);});
+			    }
+			}
+			
+			function facebook_send_message(to) {
+				FB.ui({
+					app_id:'xxxxxxxx',
+					method: 'send',
+					name: 'Tiny Wings',
+					link: 'http://www.thinknewgames.com/thinknew/html5/TinyWings/guest.html?roomid=C',
+					to:to,
+					description:'Race With Me!'
+			
+				},function(obj) { console.log(obj);}));
+			}
+            
+            document.addEventListener('deviceready', function() {
+										  try {
+											//alert('Device is ready! Make sure you set your app_id below this alert.');
+											FB.init({ appId: "138294852910700", nativeInterface: CDV.FB, useCachedDialogs: false });
+											document.getElementById('data').innerHTML = "";
+										  } catch (e) {
+											alert(e);
+										  }
+                                      }, false);
+			
+			
+			function sendFBEmail(email)
+			{
+				var args = {};
+				args.toRecipients = email
+				args.cbFunction = myCallback;
+				args.subject = "Tiny Wings Invite";
+				args.body = "http://www.thinknewgames.com/thinknew/html5/TinyWings/guest.html?roomid=C";
+				window.plugins.emailComposer.showEmailComposerWithCB(myCallback,'TinyWings Invite','http://www.thinknewgames.com/thinknew/html5/TinyWings/guest.html?rooomid=C',email);
+				//cordova.exec(null, null, "EmailComposer", "showEmailComposerWithCB", [args]);
+			}						  
+									  
+			 var myCallback = function(result){
+				if(result == 0)
+				alert("Cancelled");
+				else if(result == 1)
+				//alert("Sent");
+				window.location.href = "mindex.html";
+				else if(result == 2)
+				//alert("Failed.");
+				window.location.href = "mindex.html";
+				else if(result == 3)
+				//alert("Not Sent.");
+				window.location.href = "mindex.html";		
+			}						  
+            </script>
+        <div id="log"></div>
+        </div>
+       </div>     
+	</body>
+</html>

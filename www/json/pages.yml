@@ -1,0 +1,31 @@
+{ "pages" : [
+	{
+		"name" : "splash",
+		"default" :"1",
+		"bg" : "background.png",
+		"timer" : "5000"
+	},
+	{
+		"name" : "splash",
+		"default" :"1",
+		"bg" : "mainPage.png",
+		"buttons":[
+			{
+				"label" : "Single Player",
+				"img" : "B_Play.png",
+				"imgOver" :"B_Play.png",
+				"onPress" :"LevelSelect",
+				"css" : {"x":"190","y" :"130"}
+			},
+			{
+				"label" : "Single Player",
+				"img" : "B_Multiplayer.png",
+				"imgOver" :"B_Multiplayer.png",
+				"onPress" :"LevelSelect",
+				"css" : {"x":"190","y" :"210"}
+			}
+		]
+
+	}
+
+]}

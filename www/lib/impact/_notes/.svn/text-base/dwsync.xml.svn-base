@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<dwsync>
+<file name="animation.js" server="thinknewgames.com/www/thinknew/html5/TinyWings/" local="129465334860000000" remote="129824553980000000" Dst="2" />
+<file name="background-map.js" server="thinknewgames.com/www/thinknew/html5/TinyWings/" local="129554307880000000" remote="129824553980000000" Dst="2" />
+<file name="collision-map.js" server="thinknewgames.com/www/thinknew/html5/TinyWings/" local="129688888680000000" remote="129824553980000000" Dst="2" />
+<file name="entity.js" server="thinknewgames.com/www/thinknew/html5/TinyWings/" local="129688888720000000" remote="129824554020000000" Dst="2" />
+<file name="font.js" server="thinknewgames.com/www/thinknew/html5/TinyWings/" local="129688888280000000" remote="129824554020000000" Dst="2" />
+<file name="game.js" server="thinknewgames.com/www/thinknew/html5/TinyWings/" local="129688888740000000" remote="129824554030000000" Dst="2" />
+<file name="image.js" server="thinknewgames.com/www/thinknew/html5/TinyWings/" local="129688109960000000" remote="129824554030000000" Dst="2" />
+<file name="impact.js" server="thinknewgames.com/www/thinknew/html5/TinyWings/" local="129688888760000000" remote="129824554030000000" Dst="2" />
+<file name="input.js" server="thinknewgames.com/www/thinknew/html5/TinyWings/" local="129688888280000000" remote="129824554040000000" Dst="2" />
+<file name="loader.js" server="thinknewgames.com/www/thinknew/html5/TinyWings/" local="129347826800000000" remote="129824554040000000" Dst="2" />
+<file name="map.js" server="thinknewgames.com/www/thinknew/html5/TinyWings/" local="129465334840000000" remote="129824554040000000" Dst="2" />
+<file name="sound.js" server="thinknewgames.com/www/thinknew/html5/TinyWings/" local="129688888280000000" remote="129824554050000000" Dst="2" />
+<file name="system.js" server="thinknewgames.com/www/thinknew/html5/TinyWings/" local="129561236840000000" remote="129824554050000000" Dst="2" />
+<file name="timer.js" server="thinknewgames.com/www/thinknew/html5/TinyWings/" local="129331993700000000" remote="129824554050000000" Dst="2" />
+</dwsync>

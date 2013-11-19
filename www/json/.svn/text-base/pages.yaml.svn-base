@@ -1,0 +1,79 @@
+{pages:[
+	{
+		name:"splash",
+		default:"1",
+		bg:"background.png",
+		timer:"5000"
+	},
+	{
+		name:"title",
+		default:"0",
+		bg:"background.png",
+		buttons:[
+			{
+				label:"Single Player",
+				img:"button.png",
+				imgOver:"button_over.png",
+				onPress:"LevelSelect",
+				css:[{x:"160",y:"200"}]
+			},
+			{
+				label:"Multi Player",
+				img:"button.png",
+				imgOver:"button_over.png",
+				onPress:"MenuScreen",
+				css:[{x:"160",y:"200"}]
+			},
+		]
+
+	},
+	{
+		name:"title",
+		default:"0",
+		bg:"background.png",
+		buttons:[
+			{
+				label:"New Game",
+				img:"button.png",
+				imgOver:"button_over.png",
+				onPress:"LevelSelect",
+				css:[{x:"160",y:"200"}]
+			},
+			{
+				label:"Multi Player",
+				img:"button.png",
+				imgOver:"button_over.png",
+				onPress:"MenuScreen",
+				css:[{x:"160",y:"200"}]
+			},
+		]
+
+	},
+	{
+		name:"title",
+		default:"0",
+		bg:"background.png",
+		buttons:[
+			{
+				label:"New Game",
+				img:"button.png",
+				imgOver:"button_over.png",
+				onPress:"LevelSelect",
+				css:[{x:"160",y:"200"}]
+			},
+			{
+				label:"Multi Player",
+				img:"button.png",
+				imgOver:"button_over.png",
+				onPress:"MenuScreen",
+				css:[{x:"160",y:"200"}]
+			},
+		],
+		maps:{
+			img:"",
+
+		}
+
+	}
+
+]}

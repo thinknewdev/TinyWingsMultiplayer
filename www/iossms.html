@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>
+        </title>
+        <link rel="stylesheet" href="themes/tinywings.min.css" />
+        <link rel="stylesheet" href="my.css" />
+        <style>
+            /* App custom styles */
+            </style>
+        
+    </head>
+    <body onload="onBodyLoad()">
+        <div data-role="page" id="page">
+            <div data-theme="" data-role="header">
+                <h3>
+                    Tiny Wings
+                </h3>
+            </div>
+            <div data-role="content">
+
+	<script type="text/javascript" charset="utf-8" src="js/SMSComposer.js"></script>
+    <script type="text/javascript" charset="utf-8">
+	
+	function onBodyLoad()
+	{
+		document.addEventListener("deviceready",onDeviceReady,false);
+	}
+	function onDeviceReady()
+	{
+		viewUpdate();
+	}
+    </script>
+
+<input onclick="ComposeSMSWithCallback();" type="button" value="Invite a Friend to Play (3 left)" />
+
+
+<script>
+
+var ComposeSMS = function(){
+
+	window.plugins.smsComposer.showSMSComposer('3424221122', 'hello');
+}
+
+var ComposeSMS2 = function(){
+
+	window.plugins.smsComposer.showSMSComposer();
+}
+
+var ComposeSMS3 = function(){
+
+	window.plugins.smsComposer.showSMSComposer('3424221122,2134463330', 'hello');
+}
+
+var ComposeSMSWithCallback = function(){
+
+	window.plugins.smsComposer.showSMSComposerWithCB(myCallback,'8433451440', 'Hey I would like to play a game with you http://www.thinknewgames.com/thinknew/html5/TinyWings/guest.html?roomid=C');
+}
+
+var myCallback = function(result){
+
+if(result == 0)
+	alert("Cancelled");
+else if(result == 1)
+	//alert("Sent");
+    document.location = "mindex.html";
+else if(result == 2)
+	alert("Failed.");
+else if(result == 3)
+	alert("Not Sent.");		
+}
+
+</script>
+                </div>
+            </div>
+  </body>
+</html>
+

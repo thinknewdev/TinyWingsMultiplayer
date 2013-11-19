@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<dwsync>
+<file name="04b03.font.png" server="thinknewgames.com/www/thinknew/html5/TinyWings/" local="129824963234101901" remote="129838339610000000" Dst="2" />
+<file name="background.png" server="thinknewgames.com/www/thinknew/html5/TinyWings/" local="129824963234191906" remote="129838339670000000" Dst="2" />
+<file name="B_Back.png" server="thinknewgames.com/www/thinknew/html5/TinyWings/" local="129824963234251909" remote="129838339690000000" Dst="2" />
+<file name="B_Forward.png" server="thinknewgames.com/www/thinknew/html5/TinyWings/" local="129824963234411918" remote="129838339690000000" Dst="2" />
+<file name="B_Go.png" server="thinknewgames.com/www/thinknew/html5/TinyWings/" local="129824963234451921" remote="129838339690000000" Dst="2" />
+<file name="B_Multiplayer.png" server="thinknewgames.com/www/thinknew/html5/TinyWings/" local="129824963234621930" remote="129838339700000000" Dst="2" />
+<file name="B_Play.png" server="thinknewgames.com/www/thinknew/html5/TinyWings/" local="129824963234661933" remote="129838339710000000" Dst="2" />
+<file name="coin_01.png" server="thinknewgames.com/www/thinknew/html5/TinyWings/" local="129824963234691934" remote="129838339720000000" Dst="2" />
+<file name="coin_02.png" server="thinknewgames.com/www/thinknew/html5/TinyWings/" local="129824963234731937" remote="129838339730000000" Dst="2" />
+<file name="coin_03.png" server="thinknewgames.com/www/thinknew/html5/TinyWings/" local="129824963235281968" remote="129838339730000000" Dst="2" />
+<file name="coin_04.png" server="thinknewgames.com/www/thinknew/html5/TinyWings/" local="129824963235321970" remote="129838339730000000" Dst="2" />
+<file name="collisiontiles-8x8.png" server="thinknewgames.com/www/thinknew/html5/TinyWings/" local="129824963235521982" remote="129838339740000000" Dst="2" />
+<file name="mainPage.png" server="thinknewgames.com/www/thinknew/html5/TinyWings/" local="129824963235571985" remote="129838339800000000" Dst="2" />
+<file name="map_placeholder.png" server="thinknewgames.com/www/thinknew/html5/TinyWings/" local="129824963235721993" remote="129838339800000000" Dst="2" />
+<file name="map_placeholder2.png" server="thinknewgames.com/www/thinknew/html5/TinyWings/" local="129824963235761996" remote="129838339800000000" Dst="2" />
+<file name="map_placeholder3.png" server="thinknewgames.com/www/thinknew/html5/TinyWings/" local="129824963235811999" remote="129838339810000000" Dst="2" />
+<file name="map_placeholder4.png" server="thinknewgames.com/www/thinknew/html5/TinyWings/" local="129824963235842000" remote="129838339810000000" Dst="2" />
+<file name="material.png" server="thinknewgames.com/www/thinknew/html5/TinyWings/" local="129824963235872002" remote="129838339820000000" Dst="2" />
+<file name="player.png" server="thinknewgames.com/www/thinknew/html5/TinyWings/" local="129288629400000000" remote="129838339820000000" Dst="2" />
+<file name="Powerup_Freeze.png" server="thinknewgames.com/www/thinknew/html5/TinyWings/" local="129824963235942006" remote="129838339830000000" Dst="2" />
+<file name="Powerup_MushroomSpring.png" server="thinknewgames.com/www/thinknew/html5/TinyWings/" local="129824963235992009" remote="129838339830000000" Dst="2" />
+<file name="Powerup_Rocket.png" server="thinknewgames.com/www/thinknew/html5/TinyWings/" local="129824963236692049" remote="129838339830000000" Dst="2" />
+<file name="Powerup_Wings.png" server="thinknewgames.com/www/thinknew/html5/TinyWings/" local="129824963236732051" remote="129838339840000000" Dst="2" />
+<file name="projectile.png" server="thinknewgames.com/www/thinknew/html5/TinyWings/" local="129824963236762053" remote="129838339840000000" Dst="2" />
+<file name="backdrop.png" server="thinknewgames.com/www/thinknew/html5/TinyWings/" local="129288629400000000" remote="129838339620000000" Dst="2" />
+<file name="bounce.mp3" server="thinknewgames.com/www/thinknew/html5/TinyWings/" local="129288629400000000" remote="129838339680000000" Dst="2" />
+<file name="bounce.ogg" server="thinknewgames.com/www/thinknew/html5/TinyWings/" local="129288629400000000" remote="129838339680000000" Dst="2" />
+<file name="coin.mp3" server="thinknewgames.com/www/thinknew/html5/TinyWings/" local="129288629400000000" remote="129838339710000000" Dst="2" />
+<file name="coin.ogg" server="thinknewgames.com/www/thinknew/html5/TinyWings/" local="129288629400000000" remote="129838339720000000" Dst="2" />
+<file name="coin.png" server="thinknewgames.com/www/thinknew/html5/TinyWings/" local="129288629400000000" remote="129838339720000000" Dst="2" />
+<file name="gameover.mp3" server="thinknewgames.com/www/thinknew/html5/TinyWings/" local="129288629400000000" remote="129838339740000000" Dst="2" />
+<file name="gameover.ogg" server="thinknewgames.com/www/thinknew/html5/TinyWings/" local="129288629400000000" remote="129838339750000000" Dst="2" />
+<file name="globeselect.png" server="thinknewgames.com/www/thinknew/html5/TinyWings/" local="129833122394134482" remote="129838339770000000" Dst="2" />
+<file name="levelselectback.png" server="thinknewgames.com/www/thinknew/html5/TinyWings/" local="129833119934943824" remote="129838339780000000" Dst="2" />
+<file name="props.png" server="thinknewgames.com/www/thinknew/html5/TinyWings/" local="129833973952995325" remote="129838339850000000" Dst="2" />
+<file name="tiles.png" server="thinknewgames.com/www/thinknew/html5/TinyWings/" local="129288629400000000" remote="129838339850000000" Dst="2" />
+<file name="waiting.png" server="thinknewgames.com/www/thinknew/html5/TinyWings/" local="129834681436003954" remote="129838339860000000" Dst="2" />
+</dwsync>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>
+        </title>
+        <link rel="stylesheet" href="css/jquerymobile.css" />
+        <link rel="stylesheet" href="themes/tinywings.css" />
+        <link rel="stylesheet" href="my.css" />
+        <style>
+            /* App custom styles */
+        </style>
+        <script src="js/jquery.js"></script>
+        <script src="js/jquerymobile.js"></script>
+        <script src="js/now.js"></script>
+    	<script type="text/javascript" src="js/nowconnect.js"></script>
+    	<script type="text/javascript" charset="utf-8" src="js/cordova-1.7.0.js"></script>
+    	<script type="text/javascript" charset="utf-8" src="js/database.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/EmailComposer.js"></script>
+        </head>
+    <body> 
+        <div data-role="page" id="page" data-add-back-btn="true">
+            <div data-theme="" data-role="header">
+                <h3>
+                    Tiny Wings
+                </h3>
+            </div>
+            <div data-role="content">
+                     <ul data-role="listview" data-divider-theme="a" data-inset="true"> 
+                         <li data-role="list-divider" role="heading">
+                            Start A Game
+                        </li>
+                         <li data-theme="c">
+                            <a href="facebookselect.html">
+                                Facebook
+                            </a>
+                        </li>
+                        <li data-theme="c">
+                            <a href="iossms.html" data-transition="slide">
+                               SMS
+                            </a>
+                        </li>
+                        <li data-theme="c">
+                            <a href="javascript:;" onClick="sendEmail()"  data-ajax="false">
+                               Email
+                            </a>
+                            
+                        </li>
+                        <li data-theme="c">
+                            <a href="javascript:fireOnclick('dialog');"  data-ajax="false">
+                               Test Multiplayer
+                            </a>
+                            
+                        </li>
+                  
+                    </ul>
+                    <a style="display:none;" href="mindex.html" id="invlink" data-ajax="false"></a>
+                    <a id="dialog" href="register.html" data-rel="dialog" data-transition="pop" style="display:none;">Open dialog</a>
+				 <script>
+                     //alert("gets bottom"); 
+                     mydb = initDB();
+                     createTables();	
+                     fetchUser();	
+                     var url='http://208.89.208.52/GetToken/6ad4368d368b43c6bb2368bd7666365b/fd790411d17d417eacf302cc12de357a'; //localhost error, only works on live server
+                     $.getJSON(url, function(data){
+                        //alert(data.token);
+                        ///*
+                        try {
+                            mydb.transaction(
+        
+                                function(transaction) {
+                                    transaction.executeSql('SELECT * FROM user ORDER BY name',[], function(transaction, results) {
+                                      // Handle the results
+                                      if(results.rows.length > 0)
+                                      {
+										  
+                                          for (var i=0; i<results.rows.length; i++) { 
+                                            var row = results.rows.item(i); 
+                                            var url='http://208.89.208.52/Register/6ad4368d368b43c6bb2368bd7666365b/fd790411d17d417eacf302cc12de357a/'+data.token+'/'+row.email+'/-1'; //localhost error, only works on live server
+                                             //ig.log(url);
+                                             $.getJSON(url, function(rdata){
+                                                   //alert(rdata.roomId);
+                                                   now.name = "Adam";
+                                                   //alert("http://www.thinknewgames.com/thinknew/html5/TinyWings/guest.html?roomid="+row.roomid)	
+                                                   //now.CreateRoom('6ad4368d368b43c6bb2368bd7666365b','fd790411d17d417eacf302cc12de357a',rdata.secret,rdata.roomId);
+                                             });
+                                            //row['roomid']
+                                          } 
+                                      } else {
+										  $("#dialog").click();
+										  //fireOnclick('dialog');
+                                      }
+                                
+                                    }, errorHandler);
+                                });
+                        } catch(e) {
+                            
+                        }
+                        //*/
+                     });
+          
+                            
+                    function sendEmail()
+                    {
+                     
+                        window.plugins.emailComposer.showEmailComposerWithCB(myCallback,'TinyWings Invite','http://www.thinknewgames.com/thinknew/html5/TinyWings/guest.html?roomid='+myroomid);
+                        //cordova.exec(null, null, "EmailComposer", "showEmailComposerWithCB", [args]);
+                    }
+                    
+                    var myCallback = function(result){
+                        //alert(result);
+                        if(result == 0)
+                        {
+                            alert("Cancelled");
+                        }
+                       // else if(result == 1)
+                        //alert("Sent");
+                       // window.location.href = "mindex.html";
+                        //else if(result == 2)
+                        //alert("Failed.");
+                        //window.location.href = "mindex.html";
+                       // else if(result == 3)
+                        //alert("Not Sent.");
+                        //window.location.href = "mindex.html";	
+                        if(result == 2)
+                        {
+                            fireOnclick('invlink');
+                            //document.getElementById('invlink').click();
+                             //document.location = "mindex.html";
+                        }
+                    }
+                    
+                    function fireOnclick(mainid) {
+                        var target=document.getElementById(mainid);
+                        if(document.dispatchEvent) { // W3C
+                            var oEvent = document.createEvent( "MouseEvents" );
+                            oEvent.initMouseEvent("click", true, true,window, 1, 1, 1, 1, 1, false, false, false, false, 0, target[0]);
+                            target.dispatchEvent( oEvent );
+                        } else if(document.fireEvent) { // IE
+                            target.fireEvent("onclick");
+                        }    
+                    }
+                
+                </script>
+           <!-- <script src="js/iscroll.js"></script>
+			<script src="js/friendlist.js"></script> -->
+        </div>
+       
+    </body>
+</html>

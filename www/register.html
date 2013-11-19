@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>
+        </title>
+        <link rel="stylesheet" href="themes/tinywings.min.css" />
+        <link rel="stylesheet" href="my.css" />
+        <style>
+            /* App custom styles */
+        </style>
+            <script src="js/now.js"></script>
+    	    <script type="text/javascript" src="js/nowconnect.js"></script>
+    		<script type="text/javascript" charset="utf-8" src="js/cordova-1.7.0.js"></script>
+			<script src="js/database.js" type="text/javascript"></script>
+			
+      
+		</head>
+		<body>
+		<div data-role="page" id="page">      
+            <div data-theme="" data-role="header">
+                <h3>
+                    Tiny Wings
+                </h3>
+            </div>
+            <div data-role="content">
+				<label for="email">Recipient Email:</label>
+				<input type="email" id="email" name="email" placeholder="Email Address"/>
+				
+				<a href="javascript:;" onClick="register()" data-role="button">Register</a>
+			</div>
+			
+			<script>
+			 mydb = initDB();
+			 createTables();	
+			 fetchUser();	
+			 function register()
+			 {
+			   
+			    var url='http://208.89.208.52/GetToken/6ad4368d368b43c6bb2368bd7666365b/fd790411d17d417eacf302cc12de357a'; //localhost error, only works on live server
+			 	$.getJSON(url, function(data){
+					alert(data.token);
+				 	var url='http://208.89.208.52/Register/6ad4368d368b43c6bb2368bd7666365b/fd790411d17d417eacf302cc12de357a/'+data.token+'/'+$("#email").val()+'/-1'; //localhost error, only works on live server
+					//ig.log(url);
+					$.getJSON(url, function(rdata){
+						//alert(JSON.stringify(rdata, replacer));
+						    now.name = $("#email").val();
+						    try {
+	
+								mydb.transaction(
+	
+									function(transaction) {
+	
+						   				transaction.executeSql('insert into user (email,roomid) VALUES ("'+$("#email").val()+'","'+rdata.roomId+'");', [], nullDataHandler, errorHandler); 
+	
+									});
+	
+							} catch(e) {
+								return;
+							}
+							
+						   $('.ui-dialog').dialog ('close');
+					 });
+				});	 
+			 }
+			</script>
+	</div>
+</body>
+</html>

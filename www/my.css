@@ -1,0 +1,10 @@
+.text-align-center {
+  text-align: center;
+}
+.text-align-right {
+  text-align: right;
+}
+
+#page {
+	 background:url(art/main_screen.png) center center fixed;
+}
